@@ -3,7 +3,6 @@ import { useEffect, useReducer } from 'react';
 import { Link } from 'react-router-dom';
 // import data from '../data';
 import axios from 'axios';
-import logger from 'use-reducer-logger';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -19,7 +18,7 @@ const reducer = (state, action) => {
 };
 
 export default function HomeScreen() {
-  const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
+  const [{ loading, error, products }, dispatch] = useReducer(reducer, {
     products: [],
     loading: true,
     error: '',
@@ -68,7 +67,7 @@ export default function HomeScreen() {
                 <p>
                   <strong>${product.price}</strong>
                 </p>
-                <button>Add to cart</button>
+                <button className="btn btn-primary">Add to cart</button>
               </div>
             </div>
           ))

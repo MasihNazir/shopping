@@ -8,15 +8,6 @@ body {
   box-sizing: border-box;
 }
 
-header {
-  background-color: #404040;
-  padding: 1rem;
-}
-header a {
-  color: #ffffff;
-  text-decoration: none;
-}
-
 main {
   padding: 1rem;
 }
