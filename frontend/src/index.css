@@ -12,6 +12,13 @@ main {
   padding: 1rem;
 }
 
+.rating span {
+  color: #ffc000;
+}
+.btn-primary {
+  background-color: #ffc000;
+  color: antiquewhite;
+}
 .products {
   display: flex;
   gap: 1rem;
@@ -27,4 +34,11 @@ main {
 }
 .productInfo {
   padding: 1rem;
+}
+
+.site-container {
+  min-height: 100vh;
+}
+main {
+  flex: 1;
 }
