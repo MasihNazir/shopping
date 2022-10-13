@@ -9,6 +9,9 @@ import ListGroup from 'react-bootstrap/esm/ListGroup';
 import { useParams } from 'react-router-dom';
 import Rating from '../components/Rating';
 import { Helmet } from 'react-helmet-async';
+import LoadingBox from '../components/LoadingBox';
+import MessageBox from '../components/MessageBox';
+import { getError } from '../utils';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -46,7 +49,7 @@ function ProductScreen() {
       } catch (error) {
         dispatch({
           type: 'FETCH_FAIL',
-          payload: error.message,
+          payload: getError(error),
         });
       }
       //setProducts(result.data);
@@ -54,9 +57,9 @@ function ProductScreen() {
     fetchData();
   }, [slug]);
   return loading ? (
-    <div>Loading....</div>
+    <LoadingBox />
   ) : error ? (
-    <div>{error}</div>
+    <MessageBox variant="danger">{error}</MessageBox>
   ) : (
     <div>
       <Row>
@@ -103,7 +106,9 @@ function ProductScreen() {
                   <Row>
                     {product.countInStock > 0 && (
                       <div className="d-grid">
-                        <Button variant="primary">Add to Cart</Button>
+                        <Button className="mt-2" variant="primary">
+                          Add to Cart
+                        </Button>
                       </div>
                     )}
                   </Row>
