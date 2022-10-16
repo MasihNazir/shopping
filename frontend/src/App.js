@@ -25,7 +25,9 @@ function App() {
                 <Link to="/cart" className="nav-link">
                   Cart
                   {cart.cartItems.length > 0 && (
-                    <Badge bg="danger">{cart.cartItems.length}</Badge>
+                    <Badge bg="danger">
+                      {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+                    </Badge>
                   )}
                 </Link>
               </Nav>
