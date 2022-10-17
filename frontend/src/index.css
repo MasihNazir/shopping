@@ -50,3 +50,7 @@ main {
   background-color: #ffc000;
   color: black;
 }
+
+.img-thumbnail {
+  height: 80px;
+}
